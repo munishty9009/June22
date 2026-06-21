@@ -18,6 +18,7 @@ module "subnet" {
   subnet_name       = var.subnet_name
   address_prefixes  = var.subnet_prefixes
   public_ip_name    = var.public_ip_name
+  depends_on = [module.vnet] 
 }
 
 module "vm" {
