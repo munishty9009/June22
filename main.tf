@@ -32,4 +32,5 @@ module "vm" {
 
   vm_name        = var.vm_name
   admin_username = var.admin_username
+  admin_password      = var.admin_password 
 }
