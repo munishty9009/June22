@@ -1,5 +1,6 @@
 name: Terraform — Azure VM Deploy
 
+
 on:
   workflow_dispatch:    # manual trigger
   push:
