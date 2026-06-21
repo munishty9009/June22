@@ -1,23 +1,31 @@
 variable "subnet_name"    { 
-type = string }
+  type = string 
+}
 
 variable "resource_group_name" { 
-type = string }
+  type = string 
+}
 
 variable "vnet_name" { 
-type = string }
+  type = string }
 
 variable "address_prefixes"    {
-type = list(string) }
+  type = list(string) 
+}
 
 variable "location"           {
-type = string }
+  type = string 
+}
 
 variable "public_ip_name"      {
-type = string }
+  type = string 
+}
 
 variable "allocation_method"   {
-type = string; default = "Static" }
+  type = string; default = "Static" 
+}
 
 variable "public_ip_sku"       {
-type = string; default = "Standard" }
+  type = string
+  default = "Standard"
+}
