@@ -3,7 +3,11 @@ variable "resource_group_name" {
   type        = string
   default     = "rg-windows-vm1990"
 }
+variable "vnet" {
+  
+  type        = string
 
+}
 variable "location" {
   description = "Azure region for all resources"
   type        = string
