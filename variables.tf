@@ -3,17 +3,22 @@ variable "resource_group_name" {
   type        = string
   default     = "rg-windows-vm1990"
 }
-variable "vnet" {
-  
-  type        = string
 
-}
 variable "location" {
   description = "Azure region for all resources"
   type        = string
   default     = "SouthIndia"
 }
+variable "vnet_name" {                    # ✅ add this
+  description = "Virtual network name"
+  type        = string
+}
 
+variable "address_space" {               # ✅ add this
+  description = "VNet address space"
+  type        = list(string)
+  default     = ["10.0.0.0/16"]
+}
 variable "vm_name" {
   description = "Name of the Windows virtual machine"
   type        = string
