@@ -1,5 +1,5 @@
 module "vnet" {
-  source = "./modules/vnet"
+  source = "./Modules/vnet"
 
   resource_group_name = var.resource_group_name
   location            = var.location
@@ -8,7 +8,7 @@ module "vnet" {
 }
 
 module "subnet" {
-  source = "./modules/subnet"
+  source = "./Modules/subnet"
 
   # Pass outputs from the vnet module
   resource_group_name = module.vnet.resource_group_name
@@ -21,9 +21,9 @@ module "subnet" {
 }
 
 module "vm" {
-  source = "./modules/vm"
+  source = "./Modules/vm"
 
-  # Pass outputs from vnet and subnet modules
+  # Pass outputs from vnet and subnet Modules
   resource_group_name = module.vnet.resource_group_name
   location            = module.vnet.location
   subnet_id           = module.subnet.subnet_id
