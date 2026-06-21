@@ -11,18 +11,18 @@ variable "vm_size"             {
 variable "admin_username"      { 
   type = string 
 }
-variable "ssh_public_key"      { type = string }
+
 variable "image_publisher"     {
   type = string
-  default = "Canonical" 
+  default = "MicrosoftWindowsServer" 
 }
 variable "image_offer"         {
   type = string 
-  default = "0001-com-ubuntu-server-jammy" 
+  default = "WindowsServer" 
 }
 variable "image_sku"           {
   type = string  
-  default = "22_04-lts" 
+  default = "2019-Datacenter" 
 }
 variable "image_version"       {
   type = string 
