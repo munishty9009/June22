@@ -1,15 +1,12 @@
 
-output "vnet_id"             
-{ 
+output "vnet_id"   { 
    value = azurerm_virtual_network.vnet.id 
 }
 
-output "resource_group_name" 
-{ 
+output "resource_group_name" { 
    value = azurerm_resource_group.rg.name
 }
 
-output "location"         
-{ 
+output "location"         { 
    value = azurerm_resource_group.rg.location 
 }
