@@ -21,12 +21,12 @@ output "vnet_id" {
 
 output "subnet_id" {
   description = "Resource ID of the Subnet"
-  value       = module.Subnet&PIP.subnet_id
+  value       = module.SubnetM.subnet_id
 }
 
 output "public_ip_id" {
   description = "Resource ID of the Public IP"
-  value       = module.Subnet&PIP.public_ip_id
+  value       = module.SubnetM.public_ip_id
 }
 
 # ─── Virtual Machine ──────────────────────────────────────────────────────────
