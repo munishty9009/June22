@@ -8,7 +8,7 @@ variable "resource_group_name" {
 variable "location" {
   description = "Azure region where resources will be deployed"
   type        = string
-  default     = "East US"
+  default     = "SouthIndia"
 }
 
 # ─── Virtual Network ──────────────────────────────────────────────────────────
@@ -21,7 +21,7 @@ variable "vnet_name" {
 variable "address_space" {
   description = "Address space for the Virtual Network (CIDR blocks)"
   type        = list(string)
-  default     = ["10.0.0.0/16"]
+  default     = ["20.0.0.0/16"]
 }
 
 # ─── Subnet ───────────────────────────────────────────────────────────────────
@@ -34,7 +34,7 @@ variable "subnet_name" {
 variable "subnet_prefixes" {
   description = "Address prefixes for the Subnet (CIDR blocks)"
   type        = list(string)
-  default     = ["10.0.1.0/24"]
+  default     = ["20.0.1.0/24"]
 }
 
 # ─── Public IP ────────────────────────────────────────────────────────────────
@@ -76,7 +76,7 @@ variable "vm_name" {
 variable "vm_size" {
   description = "Azure VM size/SKU"
   type        = string
-  default     = "Standard_B2s"
+  default     = "Standard_D2s_v3"
 }
 
 variable "admin_username" {
