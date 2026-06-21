@@ -33,10 +33,10 @@ output "public_ip_id" {
 
 output "vm_id" {
   description = "Resource ID of the Virtual Machine"
-  value       = module.VM.vm_id
+  value       = module.vm.vm_id
 }
 
 output "vm_private_ip" {
   description = "Private IP address of the VM NIC"
-  value       = module.VM.private_ip
+  value       = module.vm.private_ip
 }
