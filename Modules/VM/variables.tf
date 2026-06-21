@@ -11,6 +11,11 @@ variable "vm_size"             {
 variable "admin_username"      { 
   type = string 
 }
+variable "admin_password" {              # ✅ add this — missing variable
+  description = "Admin password"
+  type        = string
+  sensitive   = true
+}
 
 variable "image_publisher"     {
   type = string
