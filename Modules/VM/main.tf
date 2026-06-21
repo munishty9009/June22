@@ -20,8 +20,7 @@ resource "azurerm_widnows_virtual_machine" "vm" {
   admin_username      = var.admin_username
 
   network_interface_ids = [azurerm_network_interface.nic.id]
-
-  
+ 
   }
 
   os_disk {
@@ -35,4 +34,4 @@ resource "azurerm_widnows_virtual_machine" "vm" {
     sku       = var.image_sku
     version   = var.image_version
   }
-}
+
