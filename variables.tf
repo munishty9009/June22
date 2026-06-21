@@ -1,118 +1,71 @@
-# ─── Resource Group & Location ───────────────────────────────────────────────
-
 variable "resource_group_name" {
-  description = "Name of the Azure Resource Group"
+  description = "Name of the resource group"
   type        = string
+  default     = "rg-windows-vm1990"
 }
 
 variable "location" {
-  description = "Azure region where resources will be deployed"
+  description = "Azure region for all resources"
   type        = string
-  default     = "East US"
+  default     = "SouthIndia"
 }
-
-# ─── Virtual Network ──────────────────────────────────────────────────────────
-
-variable "vnet_name" {
-  description = "Name of the Virtual Network"
-  type        = string
-}
-
-variable "address_space" {
-  description = "Address space for the Virtual Network (CIDR blocks)"
-  type        = list(string)
-  default     = ["20.0.0.0/16"]
-}
-
-# ─── Subnet ───────────────────────────────────────────────────────────────────
-
-variable "subnet_name" {
-  description = "Name of the Subnet"
-  type        = string
-}
-
-variable "subnet_prefixes" {
-  description = "Address prefixes for the Subnet (CIDR blocks)"
-  type        = list(string)
-  default     = ["20.0.1.0/24"]
-}
-
-# ─── Public IP ────────────────────────────────────────────────────────────────
-
-variable "public_ip_name" {
-  description = "Name of the Public IP resource"
-  type        = string
-}
-
-variable "allocation_method" {
-  description = "Public IP allocation method — Static or Dynamic"
-  type        = string
-  default     = "Static"
-
-  validation {
-    condition     = contains(["Static", "Dynamic"], var.allocation_method)
-    error_message = "allocation_method must be 'Static' or 'Dynamic'."
-  }
-}
-
-variable "public_ip_sku" {
-  description = "SKU for the Public IP — Basic or Standard"
-  type        = string
-  default     = "Standard"
-
-  validation {
-    condition     = contains(["Basic", "Standard"], var.public_ip_sku)
-    error_message = "public_ip_sku must be 'Basic' or 'Standard'."
-  }
-}
-
-# ─── Virtual Machine ──────────────────────────────────────────────────────────
 
 variable "vm_name" {
-  description = "Name of the Virtual Machine"
+  description = "Name of the Windows virtual machine"
   type        = string
+  default     = "vm-windows-01990"
 }
 
 variable "vm_size" {
-  description = "Azure VM size/SKU"
+  description = "Size/SKU of the virtual machine"
   type        = string
   default     = "Standard_D2s_v3"
 }
 
 variable "admin_username" {
-  description = "Administrator username for the VM"
+  description = "Local administrator username"
   type        = string
-  default     = "azureuser"
+  default     = "azureadmin"
 }
 
-variable "ssh_public_key" {
-  description = "SSH public key for VM authentication"
+variable "admin_password" {
+  description = "Local administrator password"
   type        = string
   sensitive   = true
 }
 
-# ─── VM OS Image ──────────────────────────────────────────────────────────────
-
-variable "image_publisher" {
-  description = "Publisher of the VM OS image"
-  type        = string
-  default     = "Canonical"
+variable "os_disk_size_gb" {
+  description = "OS disk size in GB"
+  type        = number
+  default     = 128
 }
 
-variable "image_offer" {
-  description = "Offer of the VM OS image"
+variable "os_disk_type" {
+  description = "OS disk storage account type"
   type        = string
-  default     = "0001-com-ubuntu-server-jammy"
+  default     = "Premium_LRS"
 }
 
-variable "image_sku" {
-  description = "SKU of the VM OS image"
-  type        = string
-  default     = "22_04-lts"
+variable "vnet_address_space" {
+  description = "Address space for the virtual network"
+  type        = list(string)
+  default     = ["20.0.0.0/16"]
 }
 
-variable "image_version" {
-  description = "Version of the VM OS image"
+variable "subnet_address_prefix" {
+  description = "Address prefix for the subnet"
+  type        = list(string)
+  default     = ["20.0.1.0/24"]
+}
+
+variable "environment" {
+  description = "Environment tag (e.g. dev, staging, prod)"
   type        = string
-  default     = "latest"
+  default     = "dev"
+}
+
+variable "tags" {
+  description = "Additional tags to apply to all resources"
+  type        = map(string)
+  default     = {}
 }
