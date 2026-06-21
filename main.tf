@@ -8,7 +8,7 @@ module "vnet" {
 }
 
 module "subnet" {
-  source = "./Modules/Subnet&PIP"
+  source = "./Modules/SubnetM"
 
   # Pass outputs from the vnet module
   resource_group_name = module.VNET.resource_group_name
@@ -26,8 +26,8 @@ module "vm" {
   # Pass outputs from vnet and subnet Modules
   resource_group_name = module.VNET.resource_group_name
   location            = module.VNET.location
-  subnet_id           = module.Subnet&PIP.subnet_id
-  public_ip_id        = module.Subnet&PIP.public_ip_id
+  subnet_id           = module.SubnetM.subnet_id
+  public_ip_id        = module.SubnetM.public_ip_id
 
   vm_name        = var.vm_name
   admin_username = var.admin_username
