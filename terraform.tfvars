@@ -1,5 +1,5 @@
 resource_group_name = "my-rg1990"
-location            = "SouthIndia"
+location            = "East US"
 vnet_name           = "my-vnet1"
 address_space       = ["20.0.0.0/16"]
 subnet_name         = "my-subnet"
