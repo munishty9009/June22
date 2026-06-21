@@ -5,6 +5,7 @@ module "vnet" {
   location            = var.location
   vnet_name           = var.vnet_name
   address_space       = var.address_space
+  depends_on = [module.resource_group] 
 }
 
 module "subnet" {
