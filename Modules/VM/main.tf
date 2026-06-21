@@ -12,7 +12,7 @@ resource "azurerm_network_interface" "nic" {
   }
 }
 
-resource "azurerm_linux_virtual_machine" "vm" {
+resource "azurerm_widnows_virtual_machine" "vm" {
   name                = var.vm_name
   resource_group_name = var.resource_group_name
   location            = var.location
@@ -21,9 +21,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
 
   network_interface_ids = [azurerm_network_interface.nic.id]
 
-  admin_ssh_key {
-    username   = var.admin_username
-    
+  
   }
 
   os_disk {
