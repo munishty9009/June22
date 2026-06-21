@@ -17,7 +17,7 @@ variable "vnet_name" {                    # ✅ add this
 variable "address_space" {               # ✅ add this
   description = "VNet address space"
   type        = list(string)
-  default     = ["10.0.0.0/16"]
+  default     = ["20.0.0.0/16"]
 }
 variable "vm_name" {
   description = "Name of the Windows virtual machine"
@@ -55,12 +55,6 @@ variable "os_disk_type" {
   default     = "Premium_LRS"
 }
 
-variable "vnet_address_space" {
-  description = "Address space for the virtual network"
-  type        = list(string)
-  default     = ["20.0.0.0/16"]
-}
-
 variable "subnet_address_prefix" {
   description = "Address prefix for the subnet"
   type        = list(string)
@@ -77,4 +71,19 @@ variable "tags" {
   description = "Additional tags to apply to all resources"
   type        = map(string)
   default     = {}
+}
+variable "subnet_name" {                 # ✅ add this
+  description = "Subnet name"
+  type        = string
+}
+
+variable "subnet_prefixes" {             # ✅ add this
+  description = "Subnet address prefixes"
+  type        = list(string)
+  default     = ["10.0.1.0/24"]
+}
+
+variable "public_ip_name" {              # ✅ add this
+  description = "Public IP name"
+  type        = string
 }
